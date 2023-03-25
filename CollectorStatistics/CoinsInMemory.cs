@@ -1,8 +1,6 @@
-﻿using System.Diagnostics;
-
-namespace CollectorStatistics
+﻿namespace CollectorStatistics
 {
-    internal class CoinsInMemory : CoinsBase
+    public class CoinsInMemory : CoinsBase
     {
         public override event PricingAddedDelegate PricingAdded;
 

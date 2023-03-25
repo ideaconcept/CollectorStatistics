@@ -34,7 +34,5 @@
         public abstract void AddPricing(int price);
 
         public abstract Statistics GetStatistics();
-
-
     }
 }

@@ -29,7 +29,7 @@
                     coins.PricingAdded += PricingAdded; ShowMenu();
 
                     Console.ForegroundColor = ConsoleColor.Green;
-                    Console.WriteLine("\nWprowadź znane ceny transkacji kupna sprzedaży dla monety:\n");
+                    Console.WriteLine("\nWprowadź znane ceny transkacji kupna-sprzedaży dla monety:\n");
                     ShowCoinDetails(coins.ID, coins.Name, coins.Denomination, coins.Currency, coins.YearOfRelease, coins.Diameter, coins.Weight, coins.Material);
                     Console.ForegroundColor = ConsoleColor.Green;
                     Console.WriteLine("Program automatycznie wyliczy dane statystyczne.\n");
@@ -173,8 +173,8 @@
             Console.ForegroundColor = ConsoleColor.DarkGray;
             Console.WriteLine("====================================================================");
             Console.ResetColor();
-            Console.WriteLine("   1. Opcja 1");
-            Console.WriteLine("   2. Opcja 2");
+            Console.WriteLine("   1. Dodawanie cen kupna-sprzedaży monet (In memory)");
+            Console.WriteLine("   2. Dodawanie cen kupna-sprzedaży monet (In File)");
             Console.WriteLine("   X. Zakończ pracę programu");
             Console.ForegroundColor = ConsoleColor.DarkGray;
             Console.WriteLine("====================================================================");

@@ -20,8 +20,6 @@ namespace CollectorStatistics
         void AddPricing(decimal price);
         void AddPricing(int price);
 
-
-
         event PricingAddedDelegate PricingAdded;
 
         Statistics GetStatistics();

@@ -2,7 +2,7 @@
 
 namespace CollectorStatistics
 {
-    internal class CoinsInFile : CoinsBase
+    public class CoinsInFile : CoinsBase
     {
         public override event PricingAddedDelegate PricingAdded;
 
