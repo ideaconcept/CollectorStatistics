@@ -27,11 +27,38 @@
         public string Material { get; }
 
         public abstract void AddPricing(float price);
-        public abstract void AddPricing(string price);
-        public abstract void AddPricing(double price);
-        public abstract void AddPricing(long price);
-        public abstract void AddPricing(decimal price);
-        public abstract void AddPricing(int price);
+
+        public void AddPricing(string price)
+        {
+            if (float.TryParse(price, out float result))
+            {
+                this.AddPricing(result);
+            }
+            else
+            {
+                throw new Exception("Wprowadzona cena nie jest liczbą.\n");
+            };
+        }
+        public void AddPricing(double price)
+        {
+            float priceDouble = (float)price;
+            this.AddPricing(priceDouble);
+        }
+        public void AddPricing(long price)
+        {
+            float priceLong = (float)price;
+            this.AddPricing(priceLong);
+        }
+        public void AddPricing(decimal price)
+        {
+            float priceDecimal = (float)price;
+            this.AddPricing(priceDecimal);
+        }
+        public void AddPricing(int price)
+        {
+            float priceInt = price;
+            this.AddPricing(priceInt);
+        }
 
         public abstract Statistics GetStatistics();
     }

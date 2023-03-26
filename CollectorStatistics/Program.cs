@@ -1,4 +1,6 @@
-﻿namespace CollectorStatistics
+﻿using System.Drawing;
+
+namespace CollectorStatistics
 {
     internal class Program
     {
@@ -58,28 +60,12 @@
                             ShowBug(e.Message);
                         }
                     }
-                        var statistics = coins.GetStatistics();
-                        Console.ForegroundColor = ConsoleColor.DarkYellow;
-                        Console.Write("\nDane dotyczące monety:");
-                        Console.ForegroundColor = ConsoleColor.Gray;
-                        Console.Write($"\t\t\t\t{coins.ID} {coins.Name} {coins.Denomination} {coins.Currency}\n");
-                        Console.ForegroundColor = ConsoleColor.DarkYellow;
-                        Console.Write("Średnia cena z wprowadzonych transakcji: ");
-                        Console.ForegroundColor = ConsoleColor.Gray;
-                        Console.Write($"\t{String.Format("{0:C2}", statistics.Average)}\n");
-                        Console.ForegroundColor = ConsoleColor.DarkYellow;
-                        Console.Write("Minimalna cena sprzedaży: ");
-                        Console.ForegroundColor = ConsoleColor.Gray;
-                        Console.Write($"\t\t\t{String.Format("{0:C2}", statistics.Min)}\n");
-                        Console.ForegroundColor = ConsoleColor.DarkYellow;
-                        Console.Write("Maksymalna cena sprzedazy: ");
-                        Console.ForegroundColor = ConsoleColor.Gray;
-                        Console.Write($"\t\t\t{String.Format("{0:C2}", statistics.Max)}\n");
-                        Console.ForegroundColor = ConsoleColor.DarkYellow;
-                        Console.Write("Liczba transkcji kupna-sprzedaży nominału: ");
-                        Console.ForegroundColor = ConsoleColor.Gray;
-                        Console.Write($"\t{statistics.Count}\n");
-                        Console.ResetColor();
+                    var statistics = coins.GetStatistics();
+                    Console.ForegroundColor = ConsoleColor.DarkYellow;
+                    Console.Write("\nDane dotyczące monety:");
+                    Console.ForegroundColor = ConsoleColor.Gray;
+                    Console.Write($"\t\t\t\t{coins.ID} {coins.Name} {coins.Denomination} {coins.Currency}\n");
+                    ShowStatistics(statistics);
                 }
                 else if (choice == "2")
                 {
@@ -118,29 +104,12 @@
                                 ShowBug(e.Message);
                             }
                         }
-
                         var statistics = coins.GetStatistics();
                         Console.ForegroundColor = ConsoleColor.DarkYellow;
                         Console.Write("\nDane dotyczące monety:");
                         Console.ForegroundColor = ConsoleColor.Gray;
                         Console.Write($"\t\t\t\t{coins.ID} {coins.Name} {coins.Denomination} {coins.Currency}\n");
-                        Console.ForegroundColor = ConsoleColor.DarkYellow;
-                        Console.Write("Średnia cena z wprowadzonych transakcji: ");
-                        Console.ForegroundColor = ConsoleColor.Gray;
-                        Console.Write($"\t{String.Format("{0:C2}", statistics.Average)}\n");
-                        Console.ForegroundColor = ConsoleColor.DarkYellow;
-                        Console.Write("Minimalna cena sprzedaży: ");
-                        Console.ForegroundColor = ConsoleColor.Gray;
-                        Console.Write($"\t\t\t{String.Format("{0:C2}", statistics.Min)}\n");
-                        Console.ForegroundColor = ConsoleColor.DarkYellow;
-                        Console.Write("Maksymalna cena sprzedazy: ");
-                        Console.ForegroundColor = ConsoleColor.Gray;
-                        Console.Write($"\t\t\t{String.Format("{0:C2}", statistics.Max)}\n");
-                        Console.ForegroundColor = ConsoleColor.DarkYellow;
-                        Console.Write("Liczba transkcji kupna-sprzedaży nominału: ");
-                        Console.ForegroundColor = ConsoleColor.Gray;
-                        Console.Write($"\t{statistics.Count}\n");
-                        Console.ResetColor();
+                        ShowStatistics(statistics);
                     }
                     catch (Exception e)
                     {
@@ -156,6 +125,27 @@
                     ShowBug("Wprowadzono złą wartość.\n");
                 }
             }
+        }
+
+        private static void ShowStatistics(Statistics statistics)
+        {
+            Console.ForegroundColor = ConsoleColor.DarkYellow;
+            Console.Write("Średnia cena z wprowadzonych transakcji: ");
+            Console.ForegroundColor = ConsoleColor.Gray;
+            Console.Write($"\t{String.Format("{0:C2}", statistics.Average)}\n");
+            Console.ForegroundColor = ConsoleColor.DarkYellow;
+            Console.Write("Minimalna cena sprzedaży: ");
+            Console.ForegroundColor = ConsoleColor.Gray;
+            Console.Write($"\t\t\t{String.Format("{0:C2}", statistics.Min)}\n");
+            Console.ForegroundColor = ConsoleColor.DarkYellow;
+            Console.Write("Maksymalna cena sprzedazy: ");
+            Console.ForegroundColor = ConsoleColor.Gray;
+            Console.Write($"\t\t\t{String.Format("{0:C2}", statistics.Max)}\n");
+            Console.ForegroundColor = ConsoleColor.DarkYellow;
+            Console.Write("Liczba transkcji kupna-sprzedaży nominału: ");
+            Console.ForegroundColor = ConsoleColor.Gray;
+            Console.Write($"\t{statistics.Count}\n");
+            Console.ResetColor();
         }
 
         private static void ShowBug(string bug)
@@ -233,7 +223,6 @@
             Console.WriteLine($"\t\t{material}\n");
             Console.ResetColor();
         }
-
     }
 }
 

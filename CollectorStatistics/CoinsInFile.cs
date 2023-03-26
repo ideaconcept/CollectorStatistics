@@ -40,42 +40,6 @@ namespace CollectorStatistics
             }
         }
 
-        public override void AddPricing(string price)
-        {
-            if (float.TryParse(price, out float result))
-            {
-                this.AddPricing(result);
-            }
-            else
-            {
-                throw new Exception("Wprowadzona cena nie jest liczbą.\n");
-            };
-        }
-
-        public override void AddPricing(double price)
-        {
-            float priceDouble = (float)price;
-            this.AddPricing(priceDouble);
-        }
-
-        public override void AddPricing(long price)
-        {
-            float priceLong = (float)price;
-            this.AddPricing(priceLong);
-        }
-
-        public override void AddPricing(decimal price)
-        {
-            float priceDecimal = (float)price;
-            this.AddPricing(priceDecimal);
-        }
-
-        public override void AddPricing(int price)
-        {
-            float priceInt = price;
-            this.AddPricing(priceInt);
-        }
-
         public override Statistics GetStatistics()
         {
             var statistics = new Statistics();
